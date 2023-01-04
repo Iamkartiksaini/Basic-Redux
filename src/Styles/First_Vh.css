@@ -1,0 +1,153 @@
+.First_Vh {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  /* justify-content: center;
+  align-items: center; */
+  gap: 30px;
+  padding-top: 30px;
+  overflow: hidden;
+}
+.text_intro {
+  flex-basis: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+.Minimals_text {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  text-align: center;
+}
+.Minimals_text h2 {
+  font-size: 32px;
+}
+.Minimals_text h1 {
+  font-size: 44px;
+  background: linear-gradient(
+    300deg,
+    rgb(0, 171, 85) 0%,
+    rgb(255, 171, 0) 25%,
+    rgb(0, 171, 85) 50%,
+    rgb(255, 171, 0) 75%,
+    rgb(0, 171, 85) 100%
+  );
+  color: transparent;
+  background-clip: text;
+  margin: 15px 0px;
+}
+.Minimals_text p {
+  color: #d2d3d4;
+  width: 53%;
+}
+
+.Preview button {
+  border: 2px solid transparent;
+  border-radius: 6px;
+  margin: 12px;
+  padding: 10px 15px;
+  font-weight: 600;
+  font-size: 1rem;
+}
+.Preview button:nth-of-type(1) {
+  background-color: #202c36;
+  color: rgb(0, 171, 85);
+}
+.Preview button:nth-of-type(2) {
+  color: white;
+  border-color: rgb(255, 255, 255);
+  background-color: transparent;
+}
+.findOn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #d2d3d4;
+  font-weight: 600;
+  font-size: 0.8rem;
+  gap: 10px;
+}
+.findOn div:nth-of-type(2) {
+  display: flex;
+  gap: 10px;
+}
+
+/* Graphical */
+
+.graphicIntro {
+  display: flex;
+  flex-direction: row;
+  flex-basis: 50%;
+  z-index: -1;
+  rotate: -10deg;
+}
+.graphicIntro div {
+  flex-basis: 50%;
+  /* display: flex;
+  flex-direction: column; */
+  color: #d2d3d4;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  transition: 0.9s;
+}
+.graphicIntro div .card {
+  margin: 10px;
+  padding: 10px;
+  height: 250px;
+  border-radius: 10px;
+  background-color: #202c36;
+}
+/* .graphicIntro div:hover .card {
+  transform: translateY(0px);
+  scale: 0.7;
+} */
+.graphicIntro div:nth-of-type(1) .card {
+  animation-name: move-element;
+  animation-duration: 50s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: backwards;
+}
+.graphicIntro div:nth-of-type(2) .card {
+  animation-name: move-element2;
+  animation-duration: 50s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
+}
+@keyframes move-element {
+  100% {
+    transform: translateY(-100vh);
+  }
+  /* 100% {
+    transform: translateY(0vh);
+  } */
+}
+@keyframes move-element2 {
+  100% {
+    transform: translateY(100vh);
+  }
+  /* 100% {
+    transform: translateY(0vh);
+  } */
+}
+
+.First_Vh ::-webkit-scrollbar {
+  width: 4px;
+  background-color: #202c3618;
+}
+
+.First_Vh ::-webkit-scrollbar-thumb {
+  background-color: #202c36;
+  border-radius: 10px;
+}
+
+.First_Vh ::-webkit-scrollbar-track {
+  background-color: #202c3615;
+}
