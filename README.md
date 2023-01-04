@@ -1,0 +1,2 @@
+# minimalsDashboard
+Cloning Minimals Dashboard
