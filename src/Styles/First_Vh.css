@@ -104,6 +104,7 @@
   height: 250px;
   border-radius: 10px;
   background-color: #202c36;
+  transform: translateY(0px);
 }
 /* .graphicIntro div:hover .card {
   transform: translateY(0px);
@@ -111,31 +112,30 @@
 } */
 .graphicIntro div:nth-of-type(1) .card {
   animation-name: move-element;
-  animation-duration: 50s;
+  animation-duration: 40s;
   animation-iteration-count: infinite;
-  animation-fill-mode: backwards;
 }
 .graphicIntro div:nth-of-type(2) .card {
   animation-name: move-element2;
-  animation-duration: 50s;
+  animation-duration: 40s;
   animation-iteration-count: infinite;
-  animation-fill-mode: forwards;
+  transform: translateY(-50vh);
 }
 @keyframes move-element {
+  50% {
+    transform: translateY(-100vh);
+  }
+  100% {
+    transform: translateY(20vh);
+  }
+}
+@keyframes move-element2 {
+  50% {
+    transform: translateY(20vh);
+  }
   100% {
     transform: translateY(-100vh);
   }
-  /* 100% {
-    transform: translateY(0vh);
-  } */
-}
-@keyframes move-element2 {
-  100% {
-    transform: translateY(100vh);
-  }
-  /* 100% {
-    transform: translateY(0vh);
-  } */
 }
 
 .First_Vh ::-webkit-scrollbar {
