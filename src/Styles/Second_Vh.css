@@ -1,9 +1,9 @@
 .Second_Vh {
-  height: 100vh;
+  height: 100%;
   overflow: hidden;
   color: white;
   position: relative;
-  margin-bottom: 40vh;
+  padding-top: 100px;
   /* background-color: #161c24; */
   z-index: -1;
 }
@@ -13,20 +13,27 @@
   justify-content: center;
   align-items: center;
   height: 40%;
-  padding-top: 5%;
+  padding: 5%;
   /* gap: 10%; */
 }
 .Second_Vh > .intro > h1 {
   font-size: 3rem;
-  width: 30%;
   text-align: center;
+  text-shadow: 5px 20px 13px rgb(0 0 0);
+}
+.Second_Vh .intro p {
+  font-weight: 800;
+  font-size: 0.7rem;
+  text-shadow: 5px 20px 13px rgb(0 0 0);
 }
 .Second_Vh > .cardIntro {
   display: flex;
   flex-direction: row;
   text-align: center;
+  justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
-  margin-top: 2%;
+  padding: 5%;
   font-weight: 600;
 }
 .Second_Vh .cardIntro div {
@@ -36,16 +43,15 @@
   align-items: center;
   justify-content: center;
   padding: 30px 20px;
+  /* margin: 0px 20px; */
   border-radius: 16px;
+  min-width: 350px;
 }
 .Second_Vh .cardIntro div h3 {
   margin-bottom: 5%;
   margin-top: 5%;
 }
-.Second_Vh .intro p {
-  font-weight: 800;
-  font-size: 0.7rem;
-}
+
 .Second_Vh .cardIntro div p,
 .Second_Vh .intro p {
   color: #d2d3d4;
@@ -53,4 +59,44 @@
 .Second_Vh .cardIntro .secondCard {
   box-shadow: rgba(0, 0, 0, 0.11) -8px -8px 12px 0px,
     rgba(0, 0, 0, 0.733) 0px 12px 24px -4px;
+}
+/* On Scroll */
+
+.firstCard {
+  transform: translateX(-150px);
+}
+.secondCard {
+  transform: translateY(-150px);
+  scale: 1.1;
+}
+.thirdCard {
+  transform: translateX(150px);
+}
+.animatedUp {
+  animation: upSide 0.5s ease-in-out forwards;
+}
+.animatedLeft {
+  animation: leftSide 0.5s ease-in-out forwards;
+}
+.animatedRight {
+  animation: rightside 0.5s ease-in-out forwards;
+}
+
+@keyframes upSide {
+  100% {
+    scale: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes leftSide {
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes rightside {
+  100% {
+    transform: translateX(0);
+  }
 }

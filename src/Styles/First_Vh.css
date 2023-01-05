@@ -42,6 +42,7 @@
   color: transparent;
   background-clip: text;
   margin: 15px 0px;
+  -webkit-box-reflect: below -15px linear-gradient(transparent, rgba(255, 255, 255, 0.219));
 }
 .Minimals_text p {
   color: #d2d3d4;
@@ -112,12 +113,12 @@
 } */
 .graphicIntro div:nth-of-type(1) .card {
   animation-name: move-element;
-  animation-duration: 70s;
+  animation-duration: 80s;
   animation-iteration-count: infinite;
 }
 .graphicIntro div:nth-of-type(2) .card {
   animation-name: move-element2;
-  animation-duration: 70s;
+  animation-duration: 80s;
   animation-iteration-count: infinite;
   transform: translateY(-50vh);
 }
