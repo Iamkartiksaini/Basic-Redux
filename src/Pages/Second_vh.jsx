@@ -1,22 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import "../Styles/Second_Vh.css";
 
 function Second_vh() {
+  const [scrollPos, setScrollPos] = useState(0);
+
+  window.addEventListener("scroll", () => {
+    setScrollPos(window.scrollY);
+  });
+
   return (
     <div className="Second_Vh">
       <div className="intro">
         <p>MINIMAL UI</p>
-        <h1>What minimal helps you?</h1>
+        <h1>
+          What minimal <br /> helps you?
+        </h1>
       </div>
       <div className="cardIntro">
-        <div className="firstCard">
+        <div
+          className={scrollPos > 250 ? "animatedLeft  firstCard " : "firstCard"}
+        >
           <div>icon</div>
           <div>
             <h3>Branding</h3>
             <p>Consistent design makes it easy to brand your own</p>
           </div>
         </div>
-        <div className="secondCard">
+        <div
+          className={scrollPos > 250 ? "animatedUp  secondCard " : "secondCard"}
+        >
           <div>icon</div>
           <div>
             <h3>UI & UX Design</h3>
@@ -27,7 +39,11 @@ function Second_vh() {
             </p>
           </div>
         </div>
-        <div className="thirdCard">
+        <div
+          className={
+            scrollPos > 250 ? "animatedRight  thirdCard " : "thirdCard"
+          }
+        >
           <div>icon</div>
           <div>
             <h3>Development</h3>
