@@ -20,10 +20,12 @@
 }
 .rocket {
   flex-basis: 50%;
+  position: relative;
 }
 
 #rocket {
-  min-width: 200px;
+  z-index: -1;
+  min-width: 175px;
   max-width: 350px;
   object-fit: fill;
   animation: rocket 5s infinite;
@@ -86,3 +88,16 @@
   border: 2px solid rgba(255, 255, 255, 0);
   text-decoration: underline;
 }
+@media screen and (max-width: 480px) {
+  #rocket {
+    max-width: 225px;
+  }
+  .textGraphic {
+    flex-basis: 100%;
+  }
+  .textGraphic .text {
+    font-size: 1.5rem;
+  }
+}
+/* @media screen and (max-width: 750px) {
+} */

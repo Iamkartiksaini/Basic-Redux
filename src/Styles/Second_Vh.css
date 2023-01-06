@@ -4,7 +4,6 @@
   color: white;
   position: relative;
   padding-top: 100px;
-  /* background-color: #161c24; */
   z-index: -1;
 }
 .Second_Vh .intro {
@@ -14,7 +13,6 @@
   align-items: center;
   height: 40%;
   padding: 5%;
-  /* gap: 10%; */
 }
 .Second_Vh > .intro > h1 {
   font-size: 3rem;
@@ -98,5 +96,11 @@
 @keyframes rightside {
   100% {
     transform: translateX(0);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .Second_Vh {
+    padding-top: 15px;
   }
 }
