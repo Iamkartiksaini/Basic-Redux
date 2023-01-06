@@ -7,7 +7,8 @@ function First_vh() {
       <div className="text_intro">
         <div className="Minimals_text">
           <h2>new project with</h2>
-          <h1>Minimal</h1>
+          <h1>Kartik</h1>
+          <h1>Saini</h1>
           <p>
             The starting point for your next project is based on MUI.Easy
             customization Helps you build apps faster and better.
