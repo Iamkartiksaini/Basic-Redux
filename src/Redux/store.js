@@ -1,4 +1,4 @@
-import { createStore, applyMiddleware } from "redux";
+import { createStore, applyMiddleware, combineReducers } from "redux";
 import thunk from "redux-thunk";
 
 // Define the initial state of the store
@@ -18,7 +18,24 @@ const reducer = (state = initialState, action) => {
   }
 };
 
+const reducer2 = (state = initialState, action) => {
+  switch (action.type) {
+    case "plus":
+      return { ...state, counter: state.counter + 2 };
+    case "minus":
+      return { ...state, counter: state.counter - 2 };
+    default:
+      return state;
+  }
+};
+
+const rootReducer = combineReducers({
+  counter: reducer,
+  todos: reducer2,
+});
+
+const store = createStore(rootReducer, applyMiddleware(thunk));
+
 // Create the store with the reducer and the thunk middleware
-const store = createStore(reducer, applyMiddleware(thunk));
 
 export default store;
