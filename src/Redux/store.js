@@ -17,13 +17,23 @@ const reducer = (state = initialState, action) => {
       return state;
   }
 };
-
-const reducer2 = (state = initialState, action) => {
-  switch (action.type) {
-    case "plus":
-      return { ...state, counter: state.counter + 2 };
-    case "minus":
-      return { ...state, counter: state.counter - 2 };
+const todoListReducer = (state = [], action) => {
+  const { type, isCompleted, text, heading, updateItem, removeThis } = action;
+  let todoItem = {
+    isCompleted,
+    text,
+    heading,
+  };
+  console.log("at back", state);
+  switch (type) {
+    case "addTodoItem":
+      return [...state, todoItem];
+    case "deleteItem":
+      let popOut = [...state];
+      popOut.pop();
+      return popOut;
+    case "editItem":
+      return popOut;
     default:
       return state;
   }
@@ -31,7 +41,7 @@ const reducer2 = (state = initialState, action) => {
 
 const rootReducer = combineReducers({
   counter: reducer,
-  todos: reducer2,
+  todoList: todoListReducer,
 });
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
