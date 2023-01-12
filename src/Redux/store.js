@@ -8,6 +8,7 @@ const initialState = {
 
 // Define a reducer that handles actions and updates the state
 const reducer = (state = initialState, action) => {
+  console.log("First");
   switch (action.type) {
     case "INCREMENT":
       return { ...state, counter: state.counter + 1 };
@@ -18,22 +19,33 @@ const reducer = (state = initialState, action) => {
   }
 };
 const todoListReducer = (state = [], action) => {
+  console.log("second");
+
   const { type, isCompleted, text, heading, updateItem, removeThis } = action;
   let todoItem = {
     isCompleted,
     text,
     heading,
   };
-  console.log("at back", state);
   switch (type) {
     case "addTodoItem":
       return [...state, todoItem];
     case "deleteItem":
       let popOut = [...state];
-      popOut.pop();
+      popOut.splice(removeThis, 1);
       return popOut;
     case "editItem":
-      return popOut;
+      let updateThis = [...state];
+      console.log("whole state", updateThis);
+      if (action.hint == "checkbox") {
+        updateThis[updateItem].isCompleted = !isCompleted;
+      }
+      if (action.hint == "textUpdate") {
+        updateThis[updateItem].heading = heading;
+        updateThis[updateItem].text = text;
+        updateThis[updateItem].isCompleted = false;
+      }
+      return updateThis;
     default:
       return state;
   }
