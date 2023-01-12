@@ -1,21 +1,36 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 function TodoList() {
   const headRef = useRef();
   const textRef = useRef();
+  const [addBtn, setAddBtn] = useState("add");
+  let x = "add";
+  let y = 0;
   const allTodo = useSelector((state) => state.todoList);
   const dispatch = useDispatch();
 
-  console.log("TodoList ", allTodo);
-
-  function addTodo() {
-    dispatch({
-      type: "addTodoItem",
-      isCompleted: false,
-      heading: headRef.current.value,
-      text: textRef.current.value,
-    });
+  function addTodo(whatDo) {
+    if (whatDo == "add") {
+      dispatch({
+        type: "addTodoItem",
+        isCompleted: false,
+        heading: headRef.current.value,
+        text: textRef.current.value,
+      });
+    }
+    if (whatDo == "edit") {
+      dispatch({
+        type: "editItem",
+        isCompleted: false,
+        heading: headRef.current.value,
+        text: textRef.current.value,
+        hint: "textUpdate",
+        updateItem: y,
+      });
+      x = "add";
+    }
+    setAddBtn("add");
   }
 
   function itemPop(index) {
@@ -28,6 +43,10 @@ function TodoList() {
     dispatch({
       type: "editItem",
       updateItem: index,
+      hint: "checkbox",
+      text: allTodo[index].text,
+      heading: allTodo[index].heading,
+      isCompleted: allTodo[index].isCompleted,
     });
   }
 
@@ -46,11 +65,11 @@ function TodoList() {
           ref={textRef}
           placeholder="write todo text"
         />
-        <button className="btn btn-info" onClick={addTodo}>
-          Add todo
-        </button>
-        <button className="btn btn-warning" onClick={itemPop}>
-          pop todo
+        <button
+          className={addBtn == "add" ? "btn btn-info" : "btn btn-success"}
+          onClick={() => addTodo(x)}
+        >
+          {addBtn == "add" ? "Add Todo" : "Save"}
         </button>
       </div>
       <div className="items">
@@ -59,16 +78,34 @@ function TodoList() {
             allTodo.map((value, index) => {
               const { isCompleted, text, heading } = value;
               return (
-                <li key={index} className="d-flex m-1 rounded">
-                  <h3>
-                    {index}. {heading}
-                  </h3>
+                <li key={index} className="d-flex m-1 gap-5 rounded">
+                  <h3>{heading}</h3>
                   <p>{text}</p>
                   <input
                     type="checkbox"
-                    onChange={() => updateTodo(index)}
+                    onChange={() => {
+                      updateTodo(index);
+                    }}
                     checked={isCompleted}
                   />
+                  <button
+                    className="btn btn-warning"
+                    onClick={() => {
+                      headRef.current.value = heading;
+                      textRef.current.value = text;
+                      x = "edit";
+                      y = index;
+                      setAddBtn("edit");
+                    }}
+                  >
+                    Edit
+                  </button>
+                  <button
+                    className="btn btn-danger"
+                    onClick={() => itemPop(index)}
+                  >
+                    Delete
+                  </button>
                 </li>
               );
             })
