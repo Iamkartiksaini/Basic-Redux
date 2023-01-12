@@ -1,0 +1,22 @@
+* {
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+}
+
+.form {
+  /* display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  flex-wrap: wrap; */
+  gap: 10px;
+  width: 100%;
+}
+.form > * {
+  flex-basis: 33%;
+}
+li {
+  background-color: #335050bf;
+  padding: 5px 10px;
+}
