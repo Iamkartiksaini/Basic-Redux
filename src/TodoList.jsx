@@ -5,7 +5,6 @@ function TodoList() {
   const headRef = useRef();
   const textRef = useRef();
   const [addBtn, setAddBtn] = useState("add");
-  let x = "add";
   let y = 0;
   const allTodo = useSelector((state) => state.todoList);
   const dispatch = useDispatch();
@@ -28,7 +27,6 @@ function TodoList() {
         hint: "textUpdate",
         updateItem: y,
       });
-      x = "add";
     }
     setAddBtn("add");
   }
@@ -67,7 +65,7 @@ function TodoList() {
         />
         <button
           className={addBtn == "add" ? "btn btn-info" : "btn btn-success"}
-          onClick={() => addTodo(x)}
+          onClick={() => addTodo(addBtn)}
         >
           {addBtn == "add" ? "Add Todo" : "Save"}
         </button>
@@ -93,7 +91,6 @@ function TodoList() {
                     onClick={() => {
                       headRef.current.value = heading;
                       textRef.current.value = text;
-                      x = "edit";
                       y = index;
                       setAddBtn("edit");
                     }}
